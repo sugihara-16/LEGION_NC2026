@@ -18,6 +18,7 @@
     1. Launch main node
         -  `$ roslaunch ninja two_module_test.launch headless:=false`
         -  Two LEGION modules will spawn in gazebo environment
+        - It will take around 10s-20s.
     2. Launch keyboard teleopelation
         -  `$ rosrun ninja keyboard_command.py`
         -  arming & takeoff robots(for the usage of keyboard teleopelation, please refer [here](https://github.com/jsk-ros-pkg/jsk_aerial_robot/wiki/keyboard_operation).
