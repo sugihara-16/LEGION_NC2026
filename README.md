@@ -5,12 +5,14 @@
 ## contents
 - README.md (this)
 - dockerfile
-    - This Dockerfile supports all processes required for installing all custom code and setting up the environment. Building and running the Docker image has been verified to work on an Ubuntu 20.04 LTS environment.
+    - This Dockerfile supports all processes required for installing all custom code and setting up the environment. Building and running the Docker image has been verified to work on an Ubuntu 20.04 LTS environment. 
+    - This image doesn't require any non-standard hardware.
 ## usage
 - Build
     - Place the included Dockerfile in an appropriate directory, then execute the following command in that directory:
         - `$ docker build -t legion_image:noetic .`
     - This Dockerfile is large, so depending on your environment, the build may fail due to temporary network errors or insufficient memory. If this happens, please try building it again several times.
+    - Typically this installation and build process will take 30min-60min.
 - Run
     -  `$ docker run -it legion_image:noetic`
     -  If you need a GUI, please run Docker with the appropriate command for your OS and graphics card specifications.
@@ -25,8 +27,11 @@
     3.  Launch assembly motion planner
         -  `$ roslaunch ninja assembly_motion.launch module_ids:="2,1" real_machine:=false`
         -  After above command, press `x` key in keyboard teleopelation to start assembly motion.
+        - it will take around 30s.
     4.  Start morphing demo
         - `$ rosrun ninja two_mod_morhping_demo.py`
         - it changes yaw and pitch joint's positions from [0,0] to [1.0, 0.8] rad.
+        - It will take around 10s.
     5. Launch disassembly motion planner
         - `$ roslaunch ninja disassembly_motion.launch module_ids:="1,2" real_machine:=false`
+        - It will take around 10s.
